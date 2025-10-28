@@ -1,4 +1,6 @@
+# Ignore large datasets and models
+data/raw/*
+models/*.pkl
 venv/
 __pycache__/
-.env
 .DS_Store
