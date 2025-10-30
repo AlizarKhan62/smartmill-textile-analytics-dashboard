@@ -1,6 +1,6 @@
 # Ignore large datasets and models
-data/raw/*
-models/*.pkl
+data/raw/pump_sensor_data.csv
+models/Random_Forest_best.pkl
 venv/
 __pycache__/
 .DS_Store
