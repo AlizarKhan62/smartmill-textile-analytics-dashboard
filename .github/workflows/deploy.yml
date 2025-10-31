@@ -22,28 +22,45 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
+          pip install snowflake-connector-python streamlit
 
-      - name: Install SnowSQL
+      - name: Test Streamlit App
         run: |
-          wget https://sfc-repo.snowflakecomputing.com/snowsql/bootstrap/installers/snowsql-linux_x86_64
-          chmod +x snowsql-linux_x86_64
-          sudo ./snowsql-linux_x86_64 --install
+          streamlit run streamlit_app.py --server.headless true &
+          sleep 10
+          pkill -f streamlit
 
-          
-
-
-      - name: Deploy Streamlit App to Snowflake
+      - name: Deploy to Snowflake Stage
         env:
           SNOWFLAKE_ACCOUNT: ${{ secrets.SNOWFLAKE_ACCOUNT }}
           SNOWFLAKE_USER: ${{ secrets.SNOWFLAKE_USER }}
           SNOWFLAKE_PASSWORD: ${{ secrets.SNOWFLAKE_PASSWORD }}
+          SNOWFLAKE_ROLE: ${{ secrets.SNOWFLAKE_ROLE }}
           SNOWFLAKE_WAREHOUSE: ${{ secrets.SNOWFLAKE_WAREHOUSE }}
           SNOWFLAKE_DATABASE: ${{ secrets.SNOWFLAKE_DATABASE }}
           SNOWFLAKE_SCHEMA: ${{ secrets.SNOWFLAKE_SCHEMA }}
-          SNOWFLAKE_ROLE: ${{ secrets.SNOWFLAKE_ROLE }}
           SNOWFLAKE_STAGE: ${{ secrets.SNOWFLAKE_STAGE }}
         run: |
-          snowsql -a $SNOWFLAKE_ACCOUNT -u $SNOWFLAKE_USER -p $SNOWFLAKE_PASSWORD -r $SNOWFLAKE_ROLE -w $SNOWFLAKE_WAREHOUSE -d $SNOWFLAKE_DATABASE -s $SNOWFLAKE_SCHEMA -q "
-          PUT file://streamlit_app.py @$SNOWFLAKE_STAGE OVERWRITE = TRUE;
-          ALTER STREAMLIT my_streamlit_app REFRESH;
-          "
+          python <<EOF
+          import snowflake.connector, os
+          ctx = snowflake.connector.connect(
+              user=os.environ['SNOWFLAKE_USER'],
+              password=os.environ['SNOWFLAKE_PASSWORD'],
+              account=os.environ['SNOWFLAKE_ACCOUNT'],
+              role=os.environ['SNOWFLAKE_ROLE'],
+              warehouse=os.environ['SNOWFLAKE_WAREHOUSE'],
+              database=os.environ['SNOWFLAKE_DATABASE'],
+              schema=os.environ['SNOWFLAKE_SCHEMA']
+          )
+          cs = ctx.cursor()
+          print("Uploading files to stage...")
+          for root, dirs, files in os.walk("."):
+              for file in files:
+                  if file.endswith(".py") or file.endswith(".zip"):
+                      path = os.path.join(root, file)
+                      stage_path = f"@{os.environ['SNOWFLAKE_STAGE']}/{file}"
+                      cs.execute(f"PUT file://{path} {stage_path} OVERWRITE=TRUE")
+                      print(f"Uploaded: {file}")
+          cs.close()
+          ctx.close()
+          EOF
