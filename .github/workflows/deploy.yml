@@ -94,3 +94,13 @@ jobs:
       - name: Debug Snowflake account format
         run: |
           echo "Account:'${{ secrets.SNOWFLAKE_ACCOUNT }}'"
+name: app_environment
+channels:
+  - snowflake
+dependencies:
+  - joblib=1.5.2
+  - plotly=6.3.0
+  - python=3.9.*
+  - scikit-learn=1.6.1
+  - snowflake-snowpark-python=
+  - streamlit=
