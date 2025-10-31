@@ -26,7 +26,8 @@ jobs:
       - name: Install SnowSQL
         run: |
           sudo apt-get update
-          wget https://sfc-repo.snowflakecomputing.com/snowsql/bootstrap/1.2/linux_x86_64/snowsql-1.2.24-linux_x86_64.deb
+          wget https://sfc-repo.snowflakecomputing.com/snowsql/bootstrap/latest/linux_x86_64/snowsql-latest-linux_x86_64.deb
+
           sudo dpkg -i snowsql-1.2.24-linux_x86_64.deb
 
       - name: Deploy Streamlit App to Snowflake
