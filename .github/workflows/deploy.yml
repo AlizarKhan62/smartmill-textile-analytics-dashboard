@@ -90,4 +90,7 @@ jobs:
           ctx.close()
           print("🚀 Deployment completed successfully.")
           EOF
-          
+
+      - name: Debug Snowflake account format
+        run: |
+          echo "Account:'${{ secrets.SNOWFLAKE_ACCOUNT }}'"
