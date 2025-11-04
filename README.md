@@ -100,7 +100,9 @@ SmartMill_Analytics/
 
 | App UI | Code |
 |----------------------------|--------------------|
-| ![App UI](app.png) | ![App UI](app1.png) | ![Code](backend.png) |
+| ![App UI](app.png) 
+| ![App UI](app1.png) 
+| ![Code](backend.png) |
 
 ##  How to Run Locally
 
