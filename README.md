@@ -58,7 +58,7 @@ This project demonstrates the use of **data warehousing (Snowflake)**, **data vi
 
 ##  Project Structure
 
-
+```
 
 SmartMill_Analytics/
 │
@@ -94,7 +94,7 @@ SmartMill_Analytics/
 ├── README.md
 └── requirements.txt
 
-
+```
 
 ##  Dashboard Preview
 
