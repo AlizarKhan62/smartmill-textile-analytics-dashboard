@@ -1,7 +1,7 @@
 
-# 🧵 SmartMill Analytics – Textile Production Monitoring Dashboard
+#  SmartMill Analytics – Textile Production Monitoring Dashboard
 
-## 📊 Project Overview
+##  Project Overview
 **SmartMill Analytics** is a data-driven **Streamlit dashboard** powered by **Snowflake** for advanced textile production monitoring and analytics.  
 It helps factory managers and decision-makers track real-time metrics like yarn production, machine efficiency, wastage rates, and cost optimization.
 
@@ -9,7 +9,7 @@ This project demonstrates the use of **data warehousing (Snowflake)**, **data vi
 
 ---
 
-## 🎯 Objectives
+##  Objectives
 - To centralize production and operational data from different sources.
 - To provide visual KPIs for better decision-making.
 - To automate analytics workflows for textile mill efficiency.
@@ -17,7 +17,7 @@ This project demonstrates the use of **data warehousing (Snowflake)**, **data vi
 
 ---
 
-## ⚙️ Tech Stack
+##  Tech Stack
 | Category | Technology Used |
 |-----------|----------------|
 | **Frontend / Visualization** | Streamlit |
@@ -29,7 +29,7 @@ This project demonstrates the use of **data warehousing (Snowflake)**, **data vi
 
 ---
 
-## 🧩 Architecture Diagram
+##  Architecture Diagram
 
 ```text
           ┌────────────────────┐
@@ -58,7 +58,7 @@ This project demonstrates the use of **data warehousing (Snowflake)**, **data vi
 
 ---
 
-## 📂 Project Structure
+##  Project Structure
 
 
 
@@ -66,6 +66,7 @@ SmartMill_Analytics/
 │
 ├── .github/workflows
 │ └── deploy.yml
+|
 ├── data/
 │ ├── raw/
 │ ├── processed/
@@ -98,32 +99,32 @@ SmartMill_Analytics/
 
 ---
 
-## 📸 Dashboard Preview
+##  Dashboard Preview
 
-| Fabric Defect Distribution | Machine Efficiency |
+| App UI | Code |
 |----------------------------|--------------------|
-| ![defect_chart](https://placehold.co/600x400) | ![machine_efficiency](https://placehold.co/600x400) |
+| ![App UI]app.png | ![App UI]app1.png | ![Code]backend.png |
 
 ---
 
-## ⚙️ How to Run Locally
+##  How to Run Locally
 
-### 1️⃣ Clone the Repository
+### Clone the Repository
 ```bash
 git clone https://github.com/yourusername/SmartMill_Analytics.git
 cd SmartMill_Analytics
 
-2️⃣ Install Dependencies
+ Install Dependencies
 pip install -r requirements.txt
 
-3️⃣ Run the Dashboard
-streamlit run app/streamlit_app.py
+ Run the Dashboard
+streamlit run streamlit_app.py
 
 
 The dashboard will open in your browser at:
-👉 http://localhost:8501
+ http://localhost:8501
 
-💼 Business Value for Textile Mills
+ Business Value for Textile Mills
 
 Reduce Defect Rates: AI detects defective batches early.
 
@@ -133,11 +134,6 @@ Predictive Maintenance: Identify underperforming machines before breakdown.
 
 Cost Optimization: Data-driven insights help reduce wastage and downtime.
 
-👨‍💻 Developed By
 
-Name: Alizar Ali
-Role: Data Analyst / Data Scientist (Textile Industry Applications)
-Location: Faisalabad, Pakistan
-Tools Used: Python, Pandas, Scikit-learn, Streamlit, Plotly, Power BI
 
 
