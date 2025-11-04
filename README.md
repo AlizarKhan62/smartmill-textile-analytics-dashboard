@@ -1,29 +1,60 @@
 
-# 🏭 Faisalabad Textile Industry Data Analytics & Machine Monitoring System
+# 🧵 SmartMill Analytics – Textile Production Monitoring Dashboard
 
-A complete **AI-powered data analytics solution** built to optimize operations for textile mills in Faisalabad.  
-This project integrates **data cleaning, machine monitoring, defect prediction, and real-time visualization** to assist data-driven decision-making.
+## 📊 Project Overview
+**SmartMill Analytics** is a data-driven **Streamlit dashboard** powered by **Snowflake** for advanced textile production monitoring and analytics.  
+It helps factory managers and decision-makers track real-time metrics like yarn production, machine efficiency, wastage rates, and cost optimization.
 
----
-
-## 🚀 Overview
-
-The **SmartMill Analytics** platform enables mill managers and analysts to:
-
-- Monitor machine performance in real-time
-- Detect quality defects using Random Forest AI models
-- Visualize production KPIs and patterns across shifts and machines
-- Make data-backed decisions for **maintenance, efficiency, and quality improvement**
+This project demonstrates the use of **data warehousing (Snowflake)**, **data visualization (Streamlit)**, and **machine learning (Scikit-Learn)** to enable actionable insights in textile manufacturing.
 
 ---
 
-## 🧠 Key Features
+## 🎯 Objectives
+- To centralize production and operational data from different sources.
+- To provide visual KPIs for better decision-making.
+- To automate analytics workflows for textile mill efficiency.
+- To experiment with machine learning for predicting production performance.
 
-- **Data Cleaning Pipeline:** Processes raw sensor and fabric data.
-- **Feature Engineering:** Extracts important metrics from production logs.
-- **Model Training (Random Forest):** Predicts defect types with high accuracy.
-- **Evaluation Notebook:** Generates confusion matrix, reports, and metrics.
-- **Streamlit Dashboard:** Interactive visualization for managers and analysts.
+---
+
+## ⚙️ Tech Stack
+| Category | Technology Used |
+|-----------|----------------|
+| **Frontend / Visualization** | Streamlit |
+| **Database & Cloud Data Warehouse** | Snowflake |
+| **Data Analysis / ML** | Python, Pandas, Scikit-Learn, Joblib |
+| **Visualization Libraries** | Plotly, Matplotlib |
+| **Environment Management** | Conda (environment.yml) |
+| **Automation / CI-CD** | GitHub Actions |
+
+---
+
+## 🧩 Architecture Diagram
+
+```text
+          ┌────────────────────┐
+          │    Data Sources     │
+          │  (Excel / CSV / DB) │
+          └─────────┬───────────┘
+                    │
+                    ▼
+          ┌────────────────────┐
+          │     Snowflake DB    │
+          │  (SMARTMILL_DB)     │
+          └─────────┬───────────┘
+                    │
+                    ▼
+          ┌────────────────────┐
+          │   Python + Streamlit│
+          │   (Data Fetching +  │
+          │   Visualization)    │
+          └─────────┬───────────┘
+                    │
+                    ▼
+          ┌────────────────────┐
+          │     User Dashboard  │
+          └────────────────────┘
+
 
 ---
 
@@ -33,6 +64,8 @@ The **SmartMill Analytics** platform enables mill managers and analysts to:
 
 SmartMill_Analytics/
 │
+├── .github/workflows
+│ └── deploy.yml
 ├── data/
 │ ├── raw/
 │ ├── processed/
