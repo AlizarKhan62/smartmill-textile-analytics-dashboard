@@ -98,14 +98,14 @@ SmartMill_Analytics/
 
 ##  Dashboard Preview
 
-| App UI
+App UI
 
-| ![App UI](app.png) 
-| ![App UI](app1.png) 
+![App UI](app.png) 
+![App UI](app1.png) 
 
-| Code
+Code
 
-| ![Code](backend.png) 
+![Code](backend.png) 
 
 ##  How to Run Locally
 
