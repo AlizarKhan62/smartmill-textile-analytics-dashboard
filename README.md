@@ -31,28 +31,28 @@ This project demonstrates the use of **data warehousing (Snowflake)**, **data vi
 
 ##  Architecture Diagram
 
-```text
+
           ┌────────────────────┐
-          │    Data Sources     │
-          │  (Excel / CSV / DB) │
-          └─────────┬───────────┘
+          │    Data Sources    │
+          │  (Excel / CSV / DB)│
+          └─────────┬──────────┘
                     │
                     ▼
           ┌────────────────────┐
-          │     Snowflake DB    │
-          │  (SMARTMILL_DB)     │
-          └─────────┬───────────┘
+          │     Snowflake DB   │
+          │  (SMARTMILL_DB)    │
+          └─────────┬──────────┘
                     │
                     ▼
           ┌────────────────────┐
-          │   Python + Streamlit│
-          │   (Data Fetching +  │
-          │   Visualization)    │
-          └─────────┬───────────┘
+          │  Python + Streamlit│
+          │   (Data Fetching + │
+          │   Visualization)   │
+          └─────────┬──────────┘
                     │
                     ▼
           ┌────────────────────┐
-          │     User Dashboard  │
+          │     User Dashboard │
           └────────────────────┘
 
 
